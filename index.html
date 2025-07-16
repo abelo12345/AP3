@@ -3,41 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Pod Reservation</title>
+    <title>MX3-Inspired Gym Pod Reservation</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4CAF50">
-    <link rel="apple-touch-icon" href="icon.png"> <!-- Optional: Add a 192x192 PNG icon file -->
+    <link rel="apple-touch-icon" href="icon.png"> <!-- Use a gym-themed icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Gym Pod Reservation</h1>
-        <p>Reserve a pod for a 1-hour slot. Available pods: 1-5. Slots: 8AM-8PM.</p>
+    <header class="hero">
+        <h1>Welcome to Your Gym</h1>
+        <p>Noe Valley Location Now Open! Reserve your pod today.</p>
     </header>
     <main>
-        <section id="reservation-form">
-            <label for="pod">Select Pod:</label>
-            <select id="pod">
-                <option value="1">Pod 1</option>
-                <option value="2">Pod 2</option>
-                <option value="3">Pod 3</option>
-                <option value="4">Pod 4</option>
-                <option value="5">Pod 5</option>
-            </select>
-            <label for="slot">Select Time Slot:</label>
-            <select id="slot"></select>
-            <button id="reserve-btn">Reserve</button>
-            <p id="message"></p>
+        <section class="promo-section">
+            <h2>No More Waiting For Equipment</h2>
+            <p>Reserve one of our 5 private pods (200 sq ft zones) equipped with weights, cardio, and more. Keyless entry for members.</p>
+            <p>Free first week for new monthly sign-ups (SF residents only).</p>
+            <button class="cta-button" onclick="scrollToReservation()">Let’s Do This!</button>
         </section>
-        <section id="bookings">
-            <h2>Current Bookings</h2>
-            <ul id="booking-list"></ul>
+        <section class="promo-section">
+            <h2>Free Fitness Assessment</h2>
+            <p>Get personalized training to meet your goals: weight loss, strength, endurance.</p>
+            <button class="cta-button">I’m Ready to Go!</button>
+        </section>
+        <section class="promo-section">
+            <h2>Small Group Classes</h2>
+            <p>No more than 6 people per class. First class free!</p>
+            <button class="cta-button">I'm So In!</button>
+        </section>
+        <section id="reservation-section" class="promo-section">
+            <h2>Reserve a Pod</h2>
+            <p>Book a 1-hour slot in one of our 5 pods. Easy and private.</p>
+            <div id="reservation-form">
+                <label for="pod">Select Pod (Zone):</label>
+                <select id="pod">
+                    <option value="1">Pod 1 (Castro Zone)</option>
+                    <option value="2">Pod 2 (Mission Zone)</option>
+                    <option value="3">Pod 3 (Noe Valley Zone)</option>
+                    <option value="4">Pod 4 (Lower Haight Zone)</option>
+                    <option value="5">Pod 5 (Extra Zone)</option>
+                </select>
+                <label for="slot">Select Time Slot:</label>
+                <select id="slot"></select>
+                <button id="reserve-btn" class="cta-button">Reserve Now</button>
+                <p id="message"></p>
+            </div>
+        </section>
+        <section class="promo-section">
+            <h2>Drop-In Workouts</h2>
+            <p>Buy a day pass and pick your slot. Perfect for visitors.</p>
+            <button class="cta-button">Get Started</button>
+        </section>
+        <section class="about-section">
+            <h2>A Little More About Us</h2>
+            <p>We have 5 pods across inspired locations. Proudly serving the community since 2025. Well-behaved dogs welcome!</p>
+        </section>
+        <section class="locations-section">
+            <h2>Our Locations</h2>
+            <ul>
+                <li>Castro: 123 Castro St, SF</li>
+                <li>Mission: 456 Mission St, SF</li>
+                <li>Noe Valley: 789 Noe St, SF</li>
+                <li>Lower Haight: 101 Haight St, SF</li>
+                <li>Extra: 202 Extra St, SF</li>
+            </ul>
+            <p>Phone: (415) 236-2556</p>
+        </section>
+        <section class="consult-section">
+            <h2>Questions? Get a Free Consultation</h2>
+            <p>For beginners to pros—let's chat!</p>
+            <button class="cta-button">Schedule Now</button>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2025 Your Gym. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js');
+        }
+        function scrollToReservation() {
+            document.getElementById('reservation-section').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
