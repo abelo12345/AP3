@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const pods = [1, 2, 3, 4, 5];
-    const slots = generateSlots(); // Array of slots like '08:00-09:00'
+    const slots = generateSlots();
     const slotSelect = document.getElementById('slot');
     const podSelect = document.getElementById('pod');
     const reserveBtn = document.getElementById('reserve-btn');
     const message = document.getElementById('message');
-    const bookingList = document.getElementById('booking-list');
 
     // Populate time slots
     slots.forEach(slot => {
@@ -15,9 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         slotSelect.appendChild(option);
     });
 
-    // Load and display existing bookings
-    displayBookings();
-
     reserveBtn.addEventListener('click', () => {
         const selectedPod = podSelect.value;
         const selectedSlot = slotSelect.value;
@@ -25,12 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
             reserve(selectedPod, selectedSlot);
             message.textContent = `Reserved Pod ${selectedPod} for ${selectedSlot}!`;
             message.style.color = '#4CAF50';
-            displayBookings();
         } else {
             message.textContent = `Pod ${selectedPod} is already booked for ${selectedSlot}.`;
             message.style.color = '#f44336';
         }
-    });
+    }));
 
     function generateSlots() {
         const slots = [];
@@ -60,17 +54,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!bookings[pod]) bookings[pod] = [];
         bookings[pod].push(slot);
         saveBookings(bookings);
-    }
-
-    function displayBookings() {
-        bookingList.innerHTML = '';
-        const bookings = getBookings();
-        Object.keys(bookings).forEach(pod => {
-            bookings[pod].forEach(slot => {
-                const li = document.createElement('li');
-                li.textContent = `Pod ${pod}: ${slot}`;
-                bookingList.appendChild(li);
-            });
-        });
     }
 });
