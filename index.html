@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Pod Reservation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="apple-touch-icon" href="icon.png"> <!-- Optional: Add a 192x192 PNG icon file -->
+</head>
+<body>
+    <header>
+        <h1>Gym Pod Reservation</h1>
+        <p>Reserve a pod for a 1-hour slot. Available pods: 1-5. Slots: 8AM-8PM.</p>
+    </header>
+    <main>
+        <section id="reservation-form">
+            <label for="pod">Select Pod:</label>
+            <select id="pod">
+                <option value="1">Pod 1</option>
+                <option value="2">Pod 2</option>
+                <option value="3">Pod 3</option>
+                <option value="4">Pod 4</option>
+                <option value="5">Pod 5</option>
+            </select>
+            <label for="slot">Select Time Slot:</label>
+            <select id="slot"></select>
+            <button id="reserve-btn">Reserve</button>
+            <p id="message"></p>
+        </section>
+        <section id="bookings">
+            <h2>Current Bookings</h2>
+            <ul id="booking-list"></ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>
